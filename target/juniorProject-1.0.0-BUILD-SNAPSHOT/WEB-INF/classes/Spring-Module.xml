@@ -1,0 +1,26 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource" >
+
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost:3306/H2H" />
+		<property name="username" value="root" />
+		<property name="password" value="fur3808535qQ@" />
+	
+	</bean>
+	
+	<bean id="userDao" class="com.H2H.juniorProject.UserDao">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<bean id="locationDao" class="com.H2H.juniorProject.LocationDao">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<bean id="logger" class="com.H2H.juniorProject.Logger">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	
+</beans>
